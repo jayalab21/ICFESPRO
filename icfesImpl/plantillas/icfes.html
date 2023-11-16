@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICFES PRO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <main>
+
+            <div class="py-5 text-center">
+                <h1>Implementación de modelo de Aprendizaje Automático para la prediccion de rendimiento pruebas ICFES Saber Pro</h1>
+                <p class="lead">El formulario presente en esta aplicación web hace parte del apartado <b>implementacion</b> de  los modelos resultantes del proyecto denominado <b>MODELO DESARROLLADO CON EL DATASET GENERADO POR EL MÉTODO DE SELECCIÓN DE ATRIBUTOS CAERAN PARA EL MODELO DE PREDICCIÓN DE RENDIMIENTO EN LAS PRUEBAS SABER PRO</b> bajo la autoría del Ing. Jairo Acosta Solano, dicha implementación fue llevada a cabo por lo autores <b>Julio Ayala</b> y <b>Carlos Espitia</b>    </p>
+            </div>
+            
+
+            <div class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                  <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-success">Lista de predicciones</span>
+                    <span id="counter" class="badge bg-success rounded-pill">0</span>
+                  </h4>
+                  <!-- <li class="list-group-item d-flex justify-content-between lh-sm">
+                      <div>
+                        <h6 class="my-0">Predict 1</h6>
+                        <small class="text-muted">params</small>
+                      </div>
+                      <span class="text-muted">Value</span>
+                    </li> -->
+                    <!-- Insercion de prediciciones aquí -->
+                  <ul id="predicciones" class="list-group mb-3" >
+                    
+                  </ul>
+    
+                </div>
+
+
+
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Parametros del modelo</h4>
+            <form  class="needs-validation" id="formulario" >
+                <div class="row g-3">
+                    
+                    <div class="col-sm-6">
+                        <label htmlFor="firstName" class="form-label">Edad del estudiante</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">Años:</span>
+                            <input type="text" class="form-control"  placeholder="0"
+                                name="edad" required />
+                            <div class="invalid-feedback">
+                                Valor necesario
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label htmlFor="country" class="form-label">Pagó matricula mediante Beca</label>
+                        <select class="form-select" id="" name="beca" required>
+                          <option value="1">Si</option>
+                          <option value="0">No</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Parametro necesario
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label htmlFor="country" class="form-label">Valor de la matricula de la universidad</label>
+                        <select class="form-select" id="" name="matricula" required>
+                          <option value="param9">No pagó matricula</option>
+                          <option value="param8">Menos de 500 mil</option>
+                          <option value="param6">Entre 500 mil y menos de 1 millon</option>
+                          <option value="param2">Entre 1 millon y menos de 2.5 millones</option>
+                          <option value="param3">Entre 2.5 millones y menos de 4 millones</option>
+                          <option value="param4">Entre 4 millones y menos de 5.5 millones</option>
+                          <option value="param5">Entre 5.5 millones y menos de 7 millones</option>
+                          <option value="param7">Mas de 7 millones</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Parametro necesario
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-12 ">
+                        <label htmlFor="country" class="form-label">Trabajo o labor que desempeña el proceedor del hogar [Padre o Madre]</label>
+                        <select class="form-select" id="" name="trabajoPadres" required>
+                          <option value="param11">Es dueno de un negocio pequeno (tiene pocos empleados o no tiene, por ejemplo tienda, papeleria, etc)</option>
+                          <option value="param12">Es operario de maquinas o conduce vehiculos (taxita, chofer)</option>
+                          <option value="param13">No aplica</option>
+                          <option value="param14">No sabe</option>
+                          <option value="param15">Otras</option>
+                          <option value="param16">Es pensionado</option>
+                          <option value="param17">Trabaja como personal de limpieza, mantenimiento, seguridad o construccion</option>
+                          <option value="param18">Trabaja como profesional (por ejemplo medico, abogado, ingeniero)</option>
+                          <option value="param19">Trabaja en el hogar, no trabaja o estudia</option>
+                          <option value="param120">Trabaja por cuenta propia (por ejemplo plomero, electricista)</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Parametro necesario
+                        </div>
+                    </div>
+
+                    <h4 class="mb-3">Selecciona el modelo a usar:</h4>
+                    <div class="form-check  col-md-4">
+                        <input class="form-check-input" type="radio" name="modelo" id="caeran" checked value="1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          CAERAN
+                        </label>
+                      </div>
+                      <div class="form-check col-md-4">
+                        <input class="form-check-input" type="radio" name="modelo" id="coraeran" value="2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          CORAERAN
+                        </label>
+                      </div>
+                      <div class="form-check col-md-4">
+                        <input class="form-check-input " type="radio" name="modelo" id="graeran"  value="3">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          GRAERAN
+                        </label>
+                      </div>
+
+ 
+                </div>
+
+                <br>
+                <hr>
+                <br>
+                <input type="submit" value="Predecir" class="btn btn-success col-md-12"/>
+            </form>
+                </div>
+            
+
+        </main>
+    </div>
+    
+    
+    <script>
+        const $formulario =  document.getElementById('formulario');
+
+        $formulario.addEventListener('submit', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            //lectura de campos
+            const edad = e.target.edad.value; //param1
+            const matricula = e.target.matricula.value; //param2 -param9
+            const beca = e.target.beca.value; //param9
+            const trabajoPadres = e.target.trabajoPadres.value; //param11-param20
+
+            const data = {
+                parametros : {
+                    param1: 0, //edad
+
+                    param2: 0, 
+                    param3: 0,
+                    param4: 0,
+                    param5: 0,
+                    param6: 0,
+                    param7: 0,
+                    param8: 0,
+                    param9: 0,
+                    
+                    param10: 0, //beca
+
+                    param11: 0,
+                    param12: 0,
+                    param13: 0,
+                    param14: 0,
+                    param15: 0,
+                    param16: 0,
+                    param17: 0,
+                    param18: 0,
+                    param19: 0,
+                    param20: 0
+            },
+            modelo: Number(e.target.modelo.value)
+        }
+
+            //modificacion de data de envio
+            data.parametros[matricula]= 1
+            data.parametros['param1'] =Number(edad);
+            data.parametros['param10'] =Number(beca);
+            data.parametros[trabajoPadres]= 1
+            
+            console.log(data)
+
+            
+                    
+        })
+
+    </script>
+</body>
+
+</html>

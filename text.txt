@@ -1,0 +1,20 @@
+automovil -
+internet -
+computador -
+consola -
+papasMatricula -
+area -
+nucleo -
+matricula -
+lugarPresentacion -
+lavadora -
+motocicleta -
+pagoMatriculaPropia-
+horno -
+metodo - 
+caracter
+beca -
+edad -
+estratto -
+genero -
+origen -
